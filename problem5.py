@@ -1,22 +1,15 @@
-import pandas as pd
-import numpy as np
+import math
 
-num = 0
-keep_going = True
+starting_num = 2520
+list_factors = range(2, 20)
+list_of_ints = range(2520, math.factorial(20) + 1)
+clean_divisions = 1
 
-while keep_going:
-    num += 20
-    count = 0
+for x in list_of_ints:
 
-    for x in range(20, 10, -1):
+    for y in list_factors:
 
-        if num % x == 0:
-            count += 2
+        if x % y == 0:
 
-    if count == 20:
-        keep_going = False
-        break
-
-print(num)
-
+            number
 

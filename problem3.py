@@ -1,39 +1,36 @@
 import math
 import time
 
-
-def is_prime(n):
-    for x in range(2, int(math.sqrt(n)) + 1):
-        if n % x == 0:
-            return False
-
-    return True
-
-
-def return_prime_factors(a_number):
-    factors = [a_number]
-
-    while True:
-
-        if is_prime(factors[0]):
-            break
-
-        for i in range(2, int(factors[0])):
-
-            if factors[0] % i == 0:
-
-                factors[0] = factors[0] / i
-                factors.append(i)
-                break
-
-    return int(max(factors))
-
-
 start = time.time()
-print(return_prime_factors(600851475143))
+num = 24
+largestFact = 0
+factors = [0, 0]
+isPrime = True
+i = 2
+
+while i * i < num:
+    if num % i == 0:
+        factors[0] = i
+        factors[1] = num / i
+
+        for k in range(0, 2):
+            isPrime = True
+            j = 2
+
+            while j*j < factors[k]:
+                if factors[k] % j == 0:
+                    isPrime = False
+                    break
+
+                j += 1
+
+            if isPrime and factors[k] > largestFact:
+                largestFact = factors[k]
+
+    i += 1
+
 end = time.time()
-print(f"This program takes {end - start} seconds to run.")
 
-
-
+print(f'{largestFact} is the largest prime factor of {num}.')
+print(f'The program takes {(end - start)*1000} milliseconds to run.')
 
