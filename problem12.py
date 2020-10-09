@@ -9,8 +9,8 @@ def triangle_number(n):
 
 
 def return_num_divisors(m):
-    num_factors = 0
     i = 1
+    num_factors = 0
 
     while i * i <= m:
         if m % i == 0:
